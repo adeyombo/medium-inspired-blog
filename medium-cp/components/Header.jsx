@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <div classname={styles.logoContainer}>
+        <div className={styles.logoContainer}>
           <Image
             className={styles.logo}
             src={Logo}
