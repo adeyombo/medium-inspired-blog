@@ -62,28 +62,31 @@ const Recommendations = () => {
 
       <div className={styles.recommedationContainer}>
         <div className={styles.title}>More from Medium</div>
-        
+
         <div className={styles.articlesContainer}>
-          <div className={styles.articleContentWrapper}>
+
+          {recommendedPosts.map((post) => (
+            <div className={styles.articleContentWrapper}>
             <div className={styles.articleContent}>
               <div className={styles.recommendationAuthorContainer}>
                 <div className={styles.recommendationAuthorProfileImageContainer}>
-                  <Image src={Author} height={100} width={100} />
+                  <Image src={post.author.image} height={100} width={100} />
                 </div>
-                <div className={styles.recommendationAuthorName}>Jonathan Doe</div>
+                <div className={styles.recommendationAuthorName}>{post.author.name}</div>
               </div>
 
-              <div className={styles.recommendationTitle}>What I learned about procrastination while scaling my startup to 100 million users</div>
+              <div className={styles.recommendationTitle}>{post.title}</div>
             </div>
 
             <div className={styles.recommendationThumbnailContainer}>
-              <Image 
+              <Image
                 className={styles.recommendationThumbnail}
-                src={JSLogo} height={100} width={100} 
+                src={post.image} height={100} width={100}
               />
             </div>
-          
+
           </div>
+          ))}
         </div>
       </div>
     </div>
@@ -91,3 +94,30 @@ const Recommendations = () => {
 }
 
 export default Recommendations
+
+const recommendedPosts = [
+  {
+    title: `What can you do with Replit?`,
+    image: ReplitLogo,
+    author: {
+      name: `Clever Programmer`,
+      image: CPLogo,
+    }
+  },
+  {
+    title: `The Ultimate Javascript Course for Beginners by Clever Programmer`,
+    image: TutorialImg,
+    author: {
+      name: `John Doe`,
+      image: Author,
+    }
+  },
+  {
+    title: `How to Become a Developer in 2022`,
+    image: JSLogo,
+    author: {
+      name: `Clever Programmer`,
+      image: CPLogo,
+    }
+  }
+]

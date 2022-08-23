@@ -23,9 +23,12 @@ const styles = {
   space: `w-[.5rem]`,
   bannerContainer: `h-[18rem] w-full grid center overflow-hidden mb-[2rem]`,
   articleMainContainer: `flex flex-col gap-[1rem]`,
+  title: `font-bold text-3xl`,
+  subtitles: `font-mediumSerifItalic text-[1.4rem] text-[#292929]`,
+  articleText: `font-mediumSerif text-[1.4rem] text-[#292929]`,
 }
 
-const Articlemain = () => {
+const Articlemain = ({ author, post }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -33,7 +36,7 @@ const Articlemain = () => {
           <div className={styles.authorContainer}>
             <div className={styles.authorProfileImageContainer}>
               <Image
-                src={Author}
+                src={`https://res.cloudinary.com/demo/image/fetch/${author.imageUrl}`}
                 className={styles.image}
                 width={100}
                 height={100}
@@ -41,9 +44,12 @@ const Articlemain = () => {
             </div>
 
             <div className={styles.column}>
-              <div>John Doe</div>
+              <div>{author.name}</div>
               <div className={styles.postDetails}>
-                <span>Aug 20 • 5 min read • </span><span className={styles.listenButton}><AiFillPlayCircle /> Listen</span>
+                <span>{new Date(post.data?.postedOn).toLocaleString('en-US', {
+                day: 'numeric',
+                month: 'short',
+              })} • {post.data?.postLength} min read • </span><span className={styles.listenButton}><AiFillPlayCircle /> Listen</span>
               </div>
             </div>
           </div>
@@ -63,12 +69,22 @@ const Articlemain = () => {
           <div className={styles.bannerContainer}>
             <Image
               className={styles.image}
-              src={BannerImage}
+              src={`https://res.cloudinary.com/demo/image/fetch/${post.data?.bannerImage}`}
               height={100}
               width={100}
             />
           </div>
-        
+
+          <h1 className={styles.title}>{post.data?.title}</h1>
+
+          <h4 className={styles.subtitle}>
+            <div>{author.name}, August 23, 2022</div>
+            <div>{post.data?.brief}</div>
+          </h4>
+
+          <div className={styles.articleText}>
+            {post.data?.body}
+          </div>
         </div>
       </div>
     </div>

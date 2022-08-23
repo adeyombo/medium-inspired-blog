@@ -1,4 +1,4 @@
-This is a Medium Inspire Blog built using NextJS and Firebase
+This is a Medium Inspired Blog built using NextJS, Tailwindcss and Firebase
 
 ## Getting Started
 
