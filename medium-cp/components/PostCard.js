@@ -19,7 +19,8 @@ const styles = {
   articleDetails: `my-2 text-[.8rem]`,
   detailsContainer: `flex items-center justify-between text-[#7a7a7a]`,
   bookmarkContainer: `cursor-pointer`,
-  thumbnailContainer: `flex-1`
+  thumbnailContainer: `flex-1`,
+  image: `object-cover`
 }
 
 const PostCard = ({ post }) => {
@@ -67,6 +68,7 @@ const PostCard = ({ post }) => {
         </div>
         <div className={styles.thumbnailContainer}>
           <Image
+            className={styles.image}
             height={100}
             width={100}
             src={`https://res.cloudinary.com/demo/image/fetch/${post.data.bannerImage}`}

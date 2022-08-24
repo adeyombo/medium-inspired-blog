@@ -8,6 +8,7 @@ import { HiOutlineLink } from 'react-icons/hi'
 import { BiBookmarks } from 'react-icons/bi'
 import { FiMoreHorizontal } from 'react-icons/fi'
 import BannerImage from '../../static/banner.png'
+import { useEffect } from 'react';
 
 const styles = {
   wrapper: `flex items-center justify-center border-l border-r flex-[3]`,
@@ -36,7 +37,7 @@ const Articlemain = ({ author, post }) => {
           <div className={styles.authorContainer}>
             <div className={styles.authorProfileImageContainer}>
               <Image
-                src={`https://res.cloudinary.com/demo/image/fetch/${author.imageUrl}`}
+                src={`https://res.cloudinary.com/demo/image/fetch/${author?.data?.imageUrl}`}
                 className={styles.image}
                 width={100}
                 height={100}
@@ -44,7 +45,7 @@ const Articlemain = ({ author, post }) => {
             </div>
 
             <div className={styles.column}>
-              <div>{author.name}</div>
+              <div>{author?.data?.name}</div>
               <div className={styles.postDetails}>
                 <span>{new Date(post.data?.postedOn).toLocaleString('en-US', {
                 day: 'numeric',
@@ -78,7 +79,11 @@ const Articlemain = ({ author, post }) => {
           <h1 className={styles.title}>{post.data?.title}</h1>
 
           <h4 className={styles.subtitle}>
-            <div>{author.name}, August 23, 2022</div>
+            <div>{author?.data?.name},{' '}{new Date(post.data?.postedOn).toLocaleString('en-US', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+              })}</div>
             <div>{post.data?.brief}</div>
           </h4>
 

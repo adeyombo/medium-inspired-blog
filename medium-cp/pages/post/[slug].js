@@ -19,6 +19,7 @@ const Post = () => {
     if(posts.length === 0){ return }
     setPost(posts.find(post => post.id === router.query.slug))
     setAuthor(users.find(user => user.id === post?.data?.author))
+    console.log(users);
   }, [post])
   
   return (

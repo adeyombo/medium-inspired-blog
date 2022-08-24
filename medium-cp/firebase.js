@@ -2,21 +2,22 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
+//import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDuF9XGc8wzm08gAwtgXDXT_XzmBHYo6pI",
-  authDomain: "medium-clone-v1-bf534.firebaseapp.com",
-  projectId: "medium-clone-v1-bf534",
-  storageBucket: "medium-clone-v1-bf534.appspot.com",
-  messagingSenderId: "248677400561",
-  appId: "1:248677400561:web:39901c65c7a9848e118e50"
+  apiKey: "AIzaSyAzND2XHPT5e9okrKhXLkwlAI_kUweJGpg",
+  authDomain: "my-medium-blog-dev.firebaseapp.com",
+  projectId: "my-medium-blog-dev",
+  storageBucket: "my-medium-blog-dev.appspot.com",
+  messagingSenderId: "255214727655",
+  appId: "1:255214727655:web:9a5978507d8d4a30c0cd42"
 };
 
-
 const app = initializeApp(firebaseConfig);
+//const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
